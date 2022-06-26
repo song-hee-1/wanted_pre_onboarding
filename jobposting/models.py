@@ -10,8 +10,8 @@ class Jobposting(models.Model):
     reward = models.IntegerField()  # 채용보상금
     content = models.TextField()  # 채용내용
     skill = models.CharField(max_length=100)  # 사용기술
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     applys = models.ManyToManyField(
         'user.User', through='Apply', related_name='jobpostings', null=True, blank=True
     )  # 지원 내역을 확인을 위한 테이블
