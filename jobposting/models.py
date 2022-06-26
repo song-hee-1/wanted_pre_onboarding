@@ -5,7 +5,7 @@ from django.utils import timezone
 # Create your models here.
 class Jobposting(models.Model):
     id = models.BigAutoField(primary_key=True)
-    name = models.ForeignKey('company.Company', on_delete=models.CASCADE)  # 회사
+    company = models.ForeignKey('company.Company', on_delete=models.CASCADE)  # 회사
     position = models.CharField(max_length=100)  # 채용포지션
     reward = models.IntegerField()  # 채용보상금
     content = models.TextField()  # 채용내용

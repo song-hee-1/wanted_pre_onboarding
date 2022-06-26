@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import JobpostingSerializer
+from .serializers import JobpostingSerializer, JobpostingCreateSerializer, JobpostingUpdateSerializer, JobPostingDetailSerializer
 from .models import Jobposting
 
 
@@ -14,7 +14,7 @@ def PostList(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = JobpostingSerializer(data=request.data)
+        serializer = JobpostingCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
@@ -29,12 +29,12 @@ def PostDetail(request, pk):
 
 
     if request.method == 'GET':
-        serializer = JobpostingSerializer(jobpostings)
+        serializer = JobPostingDetailSerializer(jobpostings)
         return Response(serializer.data)
 
 
     elif request.method == 'PUT':
-        serializer = JobpostingSerializer(jobpostings, data=request.data)
+        serializer = JobpostingUpdateSerializer(jobpostings, data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -45,3 +45,5 @@ def PostDetail(request, pk):
         jobposting = Jobposting.objects.get(id=pk)
         jobposting.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+1
