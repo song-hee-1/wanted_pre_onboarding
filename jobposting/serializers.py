@@ -53,7 +53,16 @@ class JobPostingDetailSerializer(serializers.ModelSerializer):
     채용보상금 = serializers.IntegerField(source='reward')
     사용기술 = serializers.CharField(source='skill')
     채용내용 = serializers.CharField(source='content')
+    회사가올린다른채용공고 = serializers.SerializerMethodField(method_name='get_other_post')
+
+    def get_other_post(self, obj):
+        company_id = obj.company_id
+        posts = Jobposting.objects.filter(company_id=company_id)
+        posts_id = []
+        for post in posts:
+            posts_id.append(post.id)
+        return posts_id
 
     class Meta:
         model = Jobposting
-        fields = ('채용공고_id', '회사명', '국가', '지역', '채용포지션', '채용보상금', '사용기술', '채용내용')
+        fields = ('채용공고_id', '회사명', '국가', '지역', '채용포지션', '채용보상금', '사용기술', '채용내용', '회사가올린다른채용공고')
