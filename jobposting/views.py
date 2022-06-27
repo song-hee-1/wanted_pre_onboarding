@@ -45,5 +45,3 @@ def PostDetail(request, pk):
         jobposting = Jobposting.objects.get(id=pk)
         jobposting.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-1
