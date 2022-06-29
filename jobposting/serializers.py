@@ -63,7 +63,6 @@ class JobPostingDetailSerializer(serializers.ModelSerializer):
         posts_id = [post.id for post in posts]
         return posts_id
 
-    #
     class Meta:
         model = Jobposting
         fields = ('채용공고_id', '회사명', '국가', '지역', '채용포지션', '채용보상금', '사용기술', '채용내용', '회사가올린다른채용공고')
