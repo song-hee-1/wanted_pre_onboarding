@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'recruitment_service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wanted_pre_onboarding',
+        'NAME': 'preonboarding',
         'USER': os.environ['USER'],
         'PASSWORD': os.environ['PASSWORD'],
         'HOST': os.environ['HOST'],
