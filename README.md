@@ -181,7 +181,7 @@
 ![Untitled (7)](https://user-images.githubusercontent.com/83492367/176605845-ef69083a-df68-44d6-a725-cff4e49a81c7.png)
 
 ### API Reference
-업데이트 예정
+[API 명세서 링크](https://documenter.getpostman.com/view/21842492/UzJLNw8p)
 
 ###   Requirements Analysis
 
